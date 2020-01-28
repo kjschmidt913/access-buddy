@@ -1,0 +1,23 @@
+{
+  "name": "access-buddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjschmidt913/access-buddy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjschmidt913/access-buddy/issues"
+  },
+  "homepage": "https://github.com/kjschmidt913/access-buddy#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
