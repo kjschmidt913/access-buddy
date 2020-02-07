@@ -61,23 +61,6 @@ class RequestForm extends Component {
         });
     };
 
-    // our delete method that uses our backend api
-    // to remove existing database information
-    deleteFromDB = (idTodelete) => {
-        parseInt(idTodelete);
-        let objIdToDelete = null;
-        this.state.data.forEach((dat) => {
-            if (dat.id == idTodelete) {
-                objIdToDelete = dat._id;
-            }
-        });
-
-        axios.delete('http://localhost:3001/api/deleteData', {
-            data: {
-                id: objIdToDelete,
-            },
-        });
-    };
 
     // our update method that uses our backend api
     // to overwrite existing data base information
@@ -96,9 +79,6 @@ class RequestForm extends Component {
         });
     };
 
-    // here is our UI
-    // it is easy to understand their functions when you
-    // see them render into our screen
     render() {
         const { data } = this.state;
         return (
@@ -126,7 +106,7 @@ class RequestForm extends Component {
                                 <option>Other</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary" onClick={() => this.putDataToDB(this.state.message)}>Submit</button>
                     </div>
                 </form>
 
