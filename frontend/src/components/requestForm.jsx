@@ -88,20 +88,20 @@ class RequestForm extends Component {
                         <h1>Request your data</h1>
                         <div class="form-group">
                             <label for="firstName">First name:</label>
-                            <input type="text" id="firstName" class="form-control" />
+                            <input type="text" id="firstName" class="form-control" onChange={(e) => this.setState({ message: e.target.value })}/>
 
                         </div>
                         <div class="form-group">
                             <label for="lasttName">Last name:</label>
-                            <input type="text" id="lastName" class="form-control" />
+                            <input type="text" id="lastName" class="form-control" onChange={(e) => this.setState({ message: e.target.value })}/>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" class="form-control" />
+                            <input type="email" id="email" class="form-control" onChange={(e) => this.setState({ message: e.target.value })}/>
                         </div>
                         <div class="form-group">
                             <label for="residence">Place of Residence:</label>
-                            <select class="form-control" id="residence">
+                            <select class="form-control" id="residence" onChange={(e) => this.setState({ message: e.target.value })}>
                                 <option>California</option>
                                 <option>Other</option>
                             </select>
