@@ -8,15 +8,15 @@ import Dashboard from "./components/dashboard/dashboard.jsx";
 
 
 function App() {
-    return (<Router>
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/request-form" component={RequestForm} />
+                <Route path="/dashboard" component={Dashboard} />
 
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/request-form" component={RequestForm} />
-            <Route path="/dashboard" component={Dashboard} />
-
-        </Switch>
-    </Router>);
+            </Switch>
+        </Router>);
 }
 
 export default App;

@@ -1,10 +1,14 @@
 import React from 'react';
+import Nav from './nav.jsx';
 
 function Home() {
     return (
         <div>
-            The home page
-      </div>
+            <Nav />
+            <div className="container">
+                The home page
+            </div>
+        </div>
     );
 }
 

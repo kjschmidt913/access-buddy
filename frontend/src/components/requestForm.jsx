@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Nav from './nav.jsx';
 
 class RequestForm extends Component {
 
@@ -18,7 +19,7 @@ class RequestForm extends Component {
             firstName: '',
             email: '',
             lastName: '',
-            residence:''
+            residence: ''
         }
     }
 
@@ -59,41 +60,45 @@ class RequestForm extends Component {
             firstName: '',
             email: '',
             lastName: '',
-            residence:''
+            residence: ''
         });
     }
 
     render() {
         return (
-            <div className="container">
-                <form>
-                    <div className="col-md-6 col-12 mx-auto mt-2">
-                        <h1>Request your data</h1>
-                        <div className="form-group mt-1">
-                            <label htmlFor="firstName">First name:</label>
-                            <input type="text" id="firstName" className="form-control" value={this.state.firstName} onChange={this.onChangeFirstName} />
+            <div>
+                <Nav />
+                <div className="container">
 
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="lasttName">Last name:</label>
-                            <input type="text" id="lastName" className="form-control" value={this.state.lastName} onChange={this.onChangeLastName} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="residence">Place of Residence:</label>
-                            <select className="form-control" id="residence" value={this.state.residence} onChange={this.onChangeResidence}>
-                                <option value="" default>Select your option</option>
-                                <option>California</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <button className="btn btn-primary col-12 mt-2" type="submit">Submit</button>
-                    </div>
-                </form>
+                    <form>
+                        <div className="col-md-6 col-12 mx-auto mt-2">
+                            <h1>Request your data</h1>
+                            <div className="form-group mt-1">
+                                <label htmlFor="firstName">First name:</label>
+                                <input type="text" id="firstName" className="form-control" value={this.state.firstName} onChange={this.onChangeFirstName} />
 
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="lasttName">Last name:</label>
+                                <input type="text" id="lastName" className="form-control" value={this.state.lastName} onChange={this.onChangeLastName} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Email:</label>
+                                <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="residence">Place of Residence:</label>
+                                <select className="form-control" id="residence" value={this.state.residence} onChange={this.onChangeResidence}>
+                                    <option value="" default>Select your option</option>
+                                    <option>California</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <button className="btn btn-primary col-12 mt-2" type="submit">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         );
     }

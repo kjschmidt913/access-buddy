@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Nav from '../nav.jsx';
 
 class Dashboard extends Component {
 
@@ -31,9 +32,12 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className="container">
-                dash here
+            <div>
+                <Nav />
+                <div className="container">
+                    dash here
 
+                </div>
             </div>
         );
     }
