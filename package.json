@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kjschmidt913/access-buddy#readme",
   "dependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "webpack": "^4.41.2"
   }
 }

@@ -7,8 +7,8 @@ class RequestForm extends Component {
         super(props)
 
         // Setting up functions
-        this.onFirstName = this.onChangeFirstName.bind(this);
-        this.onChangeEmail = this.onChangEmail.bind(this);
+        this.onChangeFirstName = this.onChangeFirstName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -19,6 +19,7 @@ class RequestForm extends Component {
             lastName: ''
         }
     }
+
 
     onChangeFirstName(e) {
         this.setState({ firstName: e.target.value })
@@ -52,34 +53,33 @@ class RequestForm extends Component {
     }
 
     render() {
-        const { data } = this.state;
         return (
-            <div class="container">
+            <div className="container">
                 <form>
-                    <div class="col-6">
+                    <div className="col-6">
                         <h1>Request your data</h1>
-                        <div class="form-group">
-                            <label for="firstName">First name:</label>
-                            <input type="text" id="firstName" class="form-control" value={this.state.firstName} onChange={this.onChangeFirstName} />
+                        <div className="form-group">
+                            <label htmlFor="firstName">First name:</label>
+                            <input type="text" id="firstName" className="form-control" value={this.state.firstName} onChange={this.onChangeFirstName} />
 
                         </div>
-                        <div class="form-group">
-                            <label for="lasttName">Last name:</label>
-                            <input type="text" id="lastName" class="form-control" value={this.state.lastName} onChange={this.onChangeLastName} />
+                        <div className="form-group">
+                            <label htmlFor="lasttName">Last name:</label>
+                            <input type="text" id="lastName" className="form-control" value={this.state.lastName} onChange={this.onChangeLastName} />
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" class="form-control" value={this.state.email} onChange={this.onChangeEmail}/>
+                        <div className="form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
                         </div>
                         {/* need to go over drop down menu selection */}
-                        {/* <div class="form-group">
-                            <label for="residence">Place of Residence:</label>
-                            <select class="form-control" id="residence" onChange={(e) => this.setState({ message: e.target.value })}>
+                        {/* <div className="form-group">
+                            <label htmlFor="residence">Place of Residence:</label>
+                            <select className="form-control" id="residence" onChange={(e) => this.setState({ message: e.target.value })}>
                                 <option>California</option>
                                 <option>Other</option>
                             </select>
                         </div> */}
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button className="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </form>
 
