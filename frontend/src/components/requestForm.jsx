@@ -67,7 +67,7 @@ class RequestForm extends Component {
         return (
             <div className="container">
                 <form>
-                    <div className="col-6 mx-auto mt-2">
+                    <div className="col-md-6 col-12 mx-auto mt-2">
                         <h1>Request your data</h1>
                         <div className="form-group mt-1">
                             <label htmlFor="firstName">First name:</label>
@@ -82,7 +82,6 @@ class RequestForm extends Component {
                             <label htmlFor="email">Email:</label>
                             <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
                         </div>
-                        {/* need to go over drop down menu selection */}
                         <div className="form-group">
                             <label htmlFor="residence">Place of Residence:</label>
                             <select className="form-control" id="residence" value={this.state.residence} onChange={this.onChangeResidence}>
