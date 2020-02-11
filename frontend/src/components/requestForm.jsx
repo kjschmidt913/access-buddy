@@ -10,13 +10,15 @@ class RequestForm extends Component {
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
+        this.onChangeResidence = this.onChangeResidence.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         // Setting up state
         this.state = {
             firstName: '',
             email: '',
-            lastName: ''
+            lastName: '',
+            residence:''
         }
     }
 
@@ -33,14 +35,22 @@ class RequestForm extends Component {
         this.setState({ lastName: e.target.value })
     }
 
+    onChangeResidence(e) {
+        this.setState({ residence: e.target.value })
+    }
+
+
     onSubmit(e) {
         e.preventDefault()
 
         const requestObject = {
             firstName: this.state.firstName,
             email: this.state.email,
-            lastName: this.state.lastName
+            lastName: this.state.lastName,
+            residence: this.state.residence
         };
+
+        console.log(requestObject);
 
         axios.post('http://localhost:3001/api/putData', requestObject)
             .then(res => console.log(res.data));
@@ -48,7 +58,8 @@ class RequestForm extends Component {
         this.setState({
             firstName: '',
             email: '',
-            lastName: ''
+            lastName: '',
+            residence:''
         });
     }
 
@@ -72,13 +83,14 @@ class RequestForm extends Component {
                             <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
                         </div>
                         {/* need to go over drop down menu selection */}
-                        {/* <div className="form-group">
+                        <div className="form-group">
                             <label htmlFor="residence">Place of Residence:</label>
-                            <select className="form-control" id="residence" onChange={(e) => this.setState({ message: e.target.value })}>
+                            <select className="form-control" id="residence" value={this.state.residence} onChange={this.onChangeResidence}>
+                                <option value="" default>Select your option</option>
                                 <option>California</option>
                                 <option>Other</option>
                             </select>
-                        </div> */}
+                        </div>
                         <button className="btn btn-primary col-12" type="submit">Submit</button>
                     </div>
                 </form>
