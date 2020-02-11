@@ -90,7 +90,7 @@ class RequestForm extends Component {
                                 <option>Other</option>
                             </select>
                         </div>
-                        <button className="btn btn-primary col-12" type="submit">Submit</button>
+                        <button className="btn btn-primary col-12 mt-2" type="submit">Submit</button>
                     </div>
                 </form>
 
