@@ -11,6 +11,9 @@ class Dashboard extends Component {
         //this is where we set state for our data request objects before they're loaded
     }
 
+
+    //this gets the data from our database and sets the state with that data.
+    //need to make this functional with correct link- this might be working though?
     componentDidMount() {
         axios.get('http://localhost:3001/api/getData')
             .then(res => {
