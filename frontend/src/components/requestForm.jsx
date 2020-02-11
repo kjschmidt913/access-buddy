@@ -41,7 +41,7 @@ class RequestForm extends Component {
             lastName: this.state.lastName
         };
 
-        axios.post('OUR LOCAL DB HERE', requestObject)
+        axios.post('http://localhost:3001/api/putData', requestObject)
             .then(res => console.log(res.data));
 
         this.setState({
