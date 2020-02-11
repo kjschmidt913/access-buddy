@@ -6,7 +6,7 @@ class RequestForm extends Component {
     constructor(props) {
         super(props)
 
-        // Setting up functions
+        // Setting up functions and binding
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeLastName = this.onChangeLastName.bind(this);
