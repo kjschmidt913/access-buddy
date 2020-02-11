@@ -56,9 +56,9 @@ class RequestForm extends Component {
         return (
             <div className="container">
                 <form>
-                    <div className="col-6">
+                    <div className="col-6 mx-auto mt-2">
                         <h1>Request your data</h1>
-                        <div className="form-group">
+                        <div className="form-group mt-1">
                             <label htmlFor="firstName">First name:</label>
                             <input type="text" id="firstName" className="form-control" value={this.state.firstName} onChange={this.onChangeFirstName} />
 
@@ -79,7 +79,7 @@ class RequestForm extends Component {
                                 <option>Other</option>
                             </select>
                         </div> */}
-                        <button className="btn btn-primary" type="submit">Submit</button>
+                        <button className="btn btn-primary col-12" type="submit">Submit</button>
                     </div>
                 </form>
 
