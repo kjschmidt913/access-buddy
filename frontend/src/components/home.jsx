@@ -4,7 +4,7 @@ import Nav from './nav.jsx';
 function Home() {
     return (
         <div>
-            <Nav />
+            <Nav account="False" />
             <div className="container">
                 The home page
             </div>

@@ -53,7 +53,7 @@ class Dashboard extends Component {
         } else {
             return (
                 <div>
-                    <Nav />
+                    <Nav account = "True"/>
                     <div className="container">
                         <h2>Most recent submission:</h2>
                         

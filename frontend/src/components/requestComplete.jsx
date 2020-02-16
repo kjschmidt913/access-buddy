@@ -4,7 +4,7 @@ import Nav from './nav.jsx';
 function RequestComplete() {
     return (
         <div>
-            <Nav />
+            <Nav account = "False"/>
             <div className="container">
                 Your request has been submitted.
             </div>
