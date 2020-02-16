@@ -8,11 +8,9 @@ class Dashboard extends Component {
         super(props)
         this.state = {
             data: [],
-            id: 0,
             message: null,
-            intervalIsSet: false,
-            idToUpdate: null,
-            objectToUpdate: null
+            intervalIsSet: false
+
         };
         //this is where we set state for our data request objects before they're loaded
     }
@@ -39,7 +37,7 @@ class Dashboard extends Component {
         fetch("http://localhost:3001/api/getData")
             .then(data => data.json())
             .then(res => this.setState({ data: res.data }));
-        console.log(this.state.data[0]);
+        // console.log(this.state.data);
     };
 
 

@@ -42,11 +42,9 @@ class RequestForm extends Component {
     }
 
     putDataToDB = requestObject => {
-        let idToBeAdded = 0;
 
 
         axios.post("http://localhost:3001/api/putData", {
-            id: idToBeAdded,
             firstName: requestObject.firstName,
             email: requestObject.email,
             lastName: requestObject.lastName,
