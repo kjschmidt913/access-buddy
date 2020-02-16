@@ -23,39 +23,52 @@ class Dashboard extends Component {
     componentDidMount() {
         this.getDataFromDb();
         if (!this.state.intervalIsSet) {
-          let interval = setInterval(this.getDataFromDb, 1000);
-          this.setState({ intervalIsSet: interval });
+            let interval = setInterval(this.getDataFromDb, 1000);
+            this.setState({ intervalIsSet: interval });
         }
-      }
-    
-      componentWillUnmount() {
+    }
+
+    componentWillUnmount() {
         if (this.state.intervalIsSet) {
-          clearInterval(this.state.intervalIsSet);
-          this.setState({ intervalIsSet: null });
+            clearInterval(this.state.intervalIsSet);
+            this.setState({ intervalIsSet: null });
         }
-      }
-    
-      getDataFromDb = () => {
+    }
+
+    getDataFromDb = () => {
         fetch("http://localhost:3001/api/getData")
-          .then(data => data.json())
-          .then(res => this.setState({ data: res.data }));
-        console.log(this.state.data);
-      };
+            .then(data => data.json())
+            .then(res => this.setState({ data: res.data }));
+        console.log(this.state.data[0]);
+    };
 
 
 
 
     render() {
-        return (
-            <div>
-                <Nav />
-                <div className="container">
-                    dash here
-                    {this.state.data[1]}
+        if (this.state.data.length === 0) {
+            return (
+                <p>Loading</p>
+            )
+        } else {
+            return (
+                <div>
+                    <Nav />
+                    <div className="container">
+                        <h2>Most recent submission:</h2>
+                        
+                        <p><span className="font-weight-bold">First Name: </span>{this.state.data[0].firstName}</p>
+                        <p><span className="font-weight-bold">Last Name: </span>{this.state.data[0].lastName}</p>
+                        <p><span className="font-weight-bold">Email: </span>{this.state.data[0].email}</p>
+                        <p><span className="font-weight-bold">Residence: </span>{this.state.data[0].residence}</p>
 
+
+                    </div>
                 </div>
-            </div>
-        );
+            );
+
+        }
+
     }
 }
 
