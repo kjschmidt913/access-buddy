@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from './nav.jsx';
+import { Link } from 'react-router-dom';
 
 class RequestForm extends Component {
 
@@ -53,8 +54,16 @@ class RequestForm extends Component {
 
         console.log(requestObject);
 
-        axios.post('http://localhost:3001/api/putData', requestObject)
-            .then(res => console.log(res.data));
+        let idToBeAdded = 0;
+
+        axios.post("http://localhost:3001/api/putData", {
+            id: idToBeAdded,
+            firstName: this.state.firstName,
+            email: this.state.email,
+            lastName: this.state.lastName,
+            residence: this.state.residence
+        });
+
 
         this.setState({
             firstName: '',
@@ -94,7 +103,7 @@ class RequestForm extends Component {
                                     <option>Other</option>
                                 </select>
                             </div>
-                            <button className="btn btn-primary col-12 mt-2" type="submit">Submit</button>
+                            <Link to="/request-complete"><button className="btn btn-primary col-12 mt-2" type="submit">Submit</button></Link>
                         </div>
                     </form>
 

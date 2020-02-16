@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Nav from '../nav.jsx';
 
 class Dashboard extends Component {
@@ -7,7 +7,12 @@ class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            requests: []
+            data: [],
+            id: 0,
+            message: null,
+            intervalIsSet: false,
+            idToUpdate: null,
+            objectToUpdate: null
         };
         //this is where we set state for our data request objects before they're loaded
     }
@@ -16,16 +21,25 @@ class Dashboard extends Component {
     //this gets the data from our database and sets the state with that data.
     //need to make this functional with correct link- this might be working though?
     componentDidMount() {
-        axios.get('http://localhost:3001/api/getData')
-            .then(res => {
-                this.setState({
-                    requests: res.data
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
+        this.getDataFromDb();
+        if (!this.state.intervalIsSet) {
+          let interval = setInterval(this.getDataFromDb, 1000);
+          this.setState({ intervalIsSet: interval });
+        }
+      }
+    
+      componentWillUnmount() {
+        if (this.state.intervalIsSet) {
+          clearInterval(this.state.intervalIsSet);
+          this.setState({ intervalIsSet: null });
+        }
+      }
+    
+      getDataFromDb = () => {
+        fetch("http://localhost:3001/api/getData")
+          .then(data => data.json())
+          .then(res => this.setState({ data: res.data }));
+      };
 
 
 
@@ -36,6 +50,7 @@ class Dashboard extends Component {
                 <Nav />
                 <div className="container">
                     dash here
+                    {this.state.requests[1]}
 
                 </div>
             </div>
