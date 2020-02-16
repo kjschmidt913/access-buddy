@@ -19,7 +19,7 @@ class Dashboard extends Component {
 
 
     //this gets the data from our database and sets the state with that data.
-    //need to make this functional with correct link- this might be working though?
+    //Since it's an inbox that updates in real time, it continuously makes calls
     componentDidMount() {
         this.getDataFromDb();
         if (!this.state.intervalIsSet) {
@@ -39,6 +39,7 @@ class Dashboard extends Component {
         fetch("http://localhost:3001/api/getData")
           .then(data => data.json())
           .then(res => this.setState({ data: res.data }));
+        console.log(this.state.data);
       };
 
 
@@ -50,7 +51,7 @@ class Dashboard extends Component {
                 <Nav />
                 <div className="container">
                     dash here
-                    {this.state.requests[1]}
+                    {this.state.data[1]}
 
                 </div>
             </div>

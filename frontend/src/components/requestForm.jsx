@@ -41,9 +41,21 @@ class RequestForm extends Component {
         this.setState({ residence: e.target.value })
     }
 
+    putDataToDB = requestObject => {
+        let idToBeAdded = 0;
 
-    onSubmit(e) {
-        e.preventDefault()
+
+        axios.post("http://localhost:3001/api/putData", {
+            id: idToBeAdded,
+            firstName: requestObject.firstName,
+            email: requestObject.email,
+            lastName: requestObject.lastName,
+            residence: requestObject.residence
+        });
+    };
+
+
+    onSubmit() {
 
         const requestObject = {
             firstName: this.state.firstName,
@@ -52,17 +64,7 @@ class RequestForm extends Component {
             residence: this.state.residence
         };
 
-        console.log(requestObject);
-
-        let idToBeAdded = 0;
-
-        axios.post("http://localhost:3001/api/putData", {
-            id: idToBeAdded,
-            firstName: this.state.firstName,
-            email: this.state.email,
-            lastName: this.state.lastName,
-            residence: this.state.residence
-        });
+        this.putDataToDB(requestObject);
 
 
         this.setState({
@@ -72,6 +74,7 @@ class RequestForm extends Component {
             residence: ''
         });
     }
+
 
     render() {
         return (
@@ -103,7 +106,7 @@ class RequestForm extends Component {
                                     <option>Other</option>
                                 </select>
                             </div>
-                            <Link to="/request-complete"><button className="btn btn-primary col-12 mt-2" type="submit">Submit</button></Link>
+                            <Link to="/request-complete"><button className="btn btn-primary col-12 mt-2" onClick={this.onSubmit} >Submit</button></Link>
                         </div>
                     </form>
 
