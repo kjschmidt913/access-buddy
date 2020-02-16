@@ -57,10 +57,10 @@ class Dashboard extends Component {
                     <div className="container">
                         <h2>Most recent submission:</h2>
                         
-                        <p><span className="font-weight-bold">First Name: </span>{this.state.data[0].firstName}</p>
-                        <p><span className="font-weight-bold">Last Name: </span>{this.state.data[0].lastName}</p>
-                        <p><span className="font-weight-bold">Email: </span>{this.state.data[0].email}</p>
-                        <p><span className="font-weight-bold">Residence: </span>{this.state.data[0].residence}</p>
+                        <p><span className="font-weight-bold">First Name: </span>{this.state.data[this.state.data.length-1].firstName}</p>
+                        <p><span className="font-weight-bold">Last Name: </span>{this.state.data[this.state.data.length-1].lastName}</p>
+                        <p><span className="font-weight-bold">Email: </span>{this.state.data[this.state.data.length-1].email}</p>
+                        <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p>
 
 
                     </div>
