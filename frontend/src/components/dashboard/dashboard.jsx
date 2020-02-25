@@ -61,7 +61,7 @@ class Dashboard extends Component {
                         <p><span className="font-weight-bold">Email: </span>{this.state.data[this.state.data.length-1].email}</p>
                         <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p> */}
 
-                        <InboxItem requests = {this.state.data} hide="True" />
+                        <InboxItem requests = {this.state.data} />
                     </div>
                 </div>
             );
