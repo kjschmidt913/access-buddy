@@ -13,7 +13,7 @@ function InboxItem(props) {
 
     const requestDetails = requests.map((request, index) =>
         <div key={index} id={index} className="d-none">
-            <h2>Request #{request._id}</h2>
+            <h2>Request Details</h2>
             <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
             <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
             <p><span className="font-weight-bold">Email: </span>{request.email}</p>
