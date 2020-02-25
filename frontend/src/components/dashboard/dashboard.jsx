@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import Nav from '../nav.jsx';
+import InboxItem from './inboxItem.jsx';
 
 class Dashboard extends Component {
 
@@ -53,14 +54,14 @@ class Dashboard extends Component {
                 <div>
                     <Nav account = "True"/>
                     <div className="container">
-                        <h2>Most recent submission:</h2>
+                        {/* <h2>Most recent submission:</h2>
                         
                         <p><span className="font-weight-bold">First Name: </span>{this.state.data[this.state.data.length-1].firstName}</p>
                         <p><span className="font-weight-bold">Last Name: </span>{this.state.data[this.state.data.length-1].lastName}</p>
                         <p><span className="font-weight-bold">Email: </span>{this.state.data[this.state.data.length-1].email}</p>
-                        <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p>
+                        <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p> */}
 
-
+                        <InboxItem requests = {this.state.data} />
                     </div>
                 </div>
             );
