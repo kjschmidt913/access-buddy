@@ -1,21 +1,34 @@
 import React from 'react';
 
-
-// Create some onClick functions that will show more info about the request when the user clicks on it
-// Your functions will go in the function InboxItem, BEFORE the return statement 
-// To reference data, use requests.fieldYouWant. if you aren't sure what the fields are, look at the html
-// I commented out in dashboard.jsx.
-
 function InboxItem(props) {
 
     const requests = props.requests;
     const tableItems = requests.map((request, index) =>
-        <tr key={index}>
+        <tr key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
             <td>Request #{request._id}</td>
-            <td>{(index +3) *4} days remaining</td>
+            <td>{(index + 3) * 4} days remaining</td>
         </tr>
     );
+
+    const requestDetails = requests.map((request, index) =>
+        <div key={index} id={index} className="d-none">
+            <h2>Request #{request._id}</h2>
+            <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
+            <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
+            <p><span className="font-weight-bold">Email: </span>{request.email}</p>
+            <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
+        </div>
+    );
+
+    function toggleHide(index) {
+        if (document.getElementById(index).className === "d-block") {
+            document.getElementById(index).className = "d-none";
+        } else {
+            document.getElementById(index).className = "d-block";
+        }
+    };
+
     return (
         <div className="container">
             <table className="table table-striped">
@@ -25,6 +38,7 @@ function InboxItem(props) {
             </table>
 
             <div className="toggle-div">
+                {requestDetails}
             </div>
 
         </div>
