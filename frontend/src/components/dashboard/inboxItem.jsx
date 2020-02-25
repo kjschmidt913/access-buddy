@@ -2,7 +2,7 @@ import React from 'react';
 
 function InboxItem(props) {
 
-    const requests = props.requests;
+    const requests = props.requests.reverse();
     const tableItems = requests.map((request, index) =>
         <tr key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
