@@ -8,6 +8,7 @@ function InboxItem(props) {
             <td>{index + 1}</td>
             <td>Request {request.lastName}</td>
             <td>{(index + 3) * 4} days remaining</td>
+            <button type="button" class="btn btn-outline-primary">Details</button>
         </tr>
     );
 
