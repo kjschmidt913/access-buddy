@@ -1,4 +1,5 @@
 import React from 'react';
+import './inboxItem.css';
 
 function InboxItem(props) {
 
@@ -13,28 +14,31 @@ function InboxItem(props) {
     );
 
     const requestDetails = requests.map((request, index) =>
-        <div key={index} id={index} className="d-none">
-            <h2>Request Details</h2>
-            <div className="row">
-                <div className="col-5">
-                    <h4>Customer Information</h4>
-                    <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
-                    <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
-                    <p><span className="font-weight-bold">Email: </span>{request.email}</p>
-                    <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
-                </div>
-                <div className="col-5">
-                <h4>Business Information</h4>
-                    <p><span className="font-weight-bold">Days remaining: </span>9</p>
-                    <p><span className="font-weight-bold">Status by department: </span></p>
-                    <p><i class="fas fa-check-square text-success"></i> Marketing</p>
-                    <p><i class="fas fa-check-square text-success"></i> Customer Experience</p>
-                    <p><i class="fas fa-times text-danger"></i> Legal</p>
+        <section key={index} id={index} className="d-none" >
+            <div className="request-modal">
+                <h2 className="col-12">Request Details <span className="text-align-right" onClick={() => { toggleHide(index) }}><i class="far fa-window-close text-danger"></i></span></h2>
+                <div className="row">
+                    <div className="col-5">
+                        <h4>Customer Information</h4>
+                        <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
+                        <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
+                        <p><span className="font-weight-bold">Email: </span>{request.email}</p>
+                        <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
+                    </div>
+                    <div className="col-5">
+                        <h4>Business Information</h4>
+                        <p><span className="font-weight-bold">Days remaining: </span>9</p>
+                        <p><span className="font-weight-bold">Status by department: </span></p>
+                        <p><i class="fas fa-check-square text-success"></i> Marketing</p>
+                        <p><i class="fas fa-check-square text-success"></i> Customer Experience</p>
+                        <p><i class="fas fa-times text-danger"></i> Legal</p>
 
+                    </div>
                 </div>
             </div>
 
-        </div>
+        </section>
+
     );
 
     function toggleHide(index) {
