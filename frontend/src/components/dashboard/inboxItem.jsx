@@ -17,7 +17,7 @@ function InboxItem(props) {
         <section key={index} id={index} className="d-none" >
             <div className="request-modal">
                 <h2 className="col-12">Request Details <span className="text-align-right" onClick={() => { toggleHide(index) }}><i class="far fa-window-close text-danger"></i></span></h2>
-                <div className="row">
+                <div className="row col-10">
                     <div className="col-5">
                         <h4>Customer Information</h4>
                         <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
