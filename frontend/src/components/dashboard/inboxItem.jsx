@@ -6,7 +6,7 @@ function InboxItem(props) {
     const tableItems = requests.map((request, index) =>
         <tr key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
-            <td>Request #{request._id}</td>
+            <td>Request {request.lastName}</td>
             <td>{(index + 3) * 4} days remaining</td>
         </tr>
     );
