@@ -6,6 +6,8 @@ import Home from "./components/home.jsx";
 import Dashboard from "./components/dashboard/dashboard.jsx";
 import RequestComplete from "./components/requestComplete.jsx";
 import About from "./components/about.jsx"
+import Features from "./components/features.jsx"
+import Pricing from "./components/pricing.jsx"
 
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/request-complete" component={RequestComplete} />
                 <Route path="/about" component={About} />
+                <Route path="/features" component={Features} />
+                <Route path="/pricing" component={Pricing} />
+
 
             </Switch>
         </Router>);
