@@ -5,6 +5,7 @@ import RequestForm from "./components/requestForm.jsx";
 import Home from "./components/home.jsx";
 import Dashboard from "./components/dashboard/dashboard.jsx";
 import RequestComplete from "./components/requestComplete.jsx";
+import About from "./components/about.jsx"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/request-form" component={RequestForm} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/request-complete" component={RequestComplete} />
+                <Route path="/about" component={About} />
 
             </Switch>
         </Router>);
