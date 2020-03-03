@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import Nav from '../nav.jsx';
 import InboxItem from './inboxItem.jsx';
+import ModalWindow from './modalWindow.jsx';
 
 class Dashboard extends Component {
 
@@ -62,6 +63,7 @@ class Dashboard extends Component {
                         <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p> */}
 
                         <InboxItem requests = {this.state.data} />
+                        <ModalWindow />
                     </div>
                 </div>
             );
