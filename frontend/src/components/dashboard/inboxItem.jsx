@@ -6,6 +6,8 @@ import './inboxItem.css';
 
 function InboxItem(props) {
 
+    let departments = props.departments;
+
     const requests = props.requests.reverse();
     const tableItems = requests.map((request, index) =>
         <tr key={index} onClick={() => { toggleHide(index) }}>
@@ -33,19 +35,27 @@ function InboxItem(props) {
                         </div>
                         <div className="col-6">
                             <h4>Business Information</h4>
-                            <p><span className="font-weight-bold">Days remaining: </span>{index * 4}</p>
+                            <p><span className="font-weight-bold">Days remaining: </span>{index +1 *3}</p>
                             <p><span className="font-weight-bold">Status by department: </span></p>
 
-                            <p><i class="fas fa-times text-danger"></i> Law</p>
-                            <p><i class="fas fa-check text-success"></i> Law</p>
+                            <p>
+                                {departments.department_law == "True" ? <i class="fas fa-check text-success mr-2"></i> : <i class="mr-2 fas fa-times text-danger"></i>}
+                             Law
+                            </p>
 
-                            <p><i class="fas fa-times text-danger"></i> Marketing</p>
-                            <p><i class="fas fa-check text-success"></i> Marketing</p>
+                            <p>
+                                {departments.department_marketing == "True" ? <i class="fas fa-check text-success mr-2 "></i> : <i class="mr-2 fas fa-times text-danger"></i>}
+                             Marketing
+                            </p>
 
-                            <p><i class="fas fa-times text-danger"></i> Customer Relations</p>
-                            <p><i class="fas fa-check text-success"></i> Customer Relations</p>
+                            <p>
+                                {departments.department_customer == "True" ? <i class="fas fa-check text-success mr-2"></i> : <i class="mr-2 fas fa-time text-danger"></i>}
+                             Customer Relations
+                            </p>
 
-                            <div className="btn btn-primary disabled send-btn" disabled>Send Data</div>
+                            {departments.department_law && departments.department_marketing && departments.department_customer ? <button className="btn btn-primary">Send Data</button> : <button className="btn btn-primary disabled send-btn" disabled>Send Data</button>}
+
+                            
                         </div>
                     </div>
                 </div>
@@ -54,6 +64,7 @@ function InboxItem(props) {
         </section>
 
     );
+
 
     function toggleHide(index) {
         if (document.getElementById(index).className === "d-block") {
