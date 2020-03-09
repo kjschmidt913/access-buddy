@@ -72,7 +72,16 @@ router.delete('/deleteData', (req, res) => {
 router.post('/putData', (req, res) => {
     let data = new Data();
 
-    const { firstName, lastName, email, residence, time } = req.body;
+    const {
+        firstName,
+        lastName,
+        email,
+        residence,
+        time,
+        department_law,
+        department_marketing,
+        department_customer
+    } = req.body;
 
     if ((!firstName) || !email) {
         return res.json({
@@ -85,6 +94,9 @@ router.post('/putData', (req, res) => {
     data.email = email;
     data.residence = residence;
     data.time = time;
+    data.department_law = department_law;
+    data.department_marketing = department_marketing;
+    data.department_customer = department_customer;
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });

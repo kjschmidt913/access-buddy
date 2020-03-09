@@ -10,8 +10,8 @@ function InboxItem(props) {
     const tableItems = requests.map((request, index) =>
         <tr key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
-            <td>Request {request.lastName.substring(0,3)+request._id.substring(5,10)}</td>
-            <td>{index*4} days remaining</td>
+            <td>Request {request.lastName.substring(0, 3) + request._id.substring(5, 10)}</td>
+            <td>{index + 1 * 3} days remaining</td>
             <button type="button" class="btn btn-outline-primary">Details</button>
         </tr>
     );
@@ -19,23 +19,34 @@ function InboxItem(props) {
     const requestDetails = requests.map((request, index) =>
         <section key={index} id={index} className="d-none" >
             <div className="request-modal">
-                <h2 className="col-12">Request Details <span className="text-align-right" onClick={() => { toggleHide(index) }}><i class="far fa-window-close text-danger"></i></span></h2>
-                <div className="row col-10">
-                    <div className="col-5">
-                        <h4>Customer Information</h4>
-                        <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
-                        <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
-                        <p><span className="font-weight-bold">Email: </span>{request.email}</p>
-                        <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
-                    </div>
-                    <div className="col-5">
-                        <h4>Business Information</h4>
-                        <p><span className="font-weight-bold">Days remaining: </span>{index*4}</p>
-                        <p><span className="font-weight-bold">Status by department: </span></p>
-                        <p><label><input type="checkbox" name="Marketing" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Marketing</label></p>
-                        <p><label><input type="checkbox" name="Customer Experience" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Customer Experience</label></p>
-                        <p><label><input type="checkbox" name="Legal" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Legal</label></p>
-                        <p><input type="submit" name="sendbutton" class="inputButton" id="sendNewSms" value=" Send Request" /></p>
+                <h4 className="text-align-left" onClick={() => { toggleHide(index) }}><i class="far fa-window-close text-danger"></i></h4>
+                <div className="col-12 mx-auto mt-2">
+                    <h2>Request Details</h2>
+
+                    <div className="row col-12 mx-auto">
+                        <div className="col-6">
+                            <h4>Customer Information</h4>
+                            <p><span className="font-weight-bold">First Name: </span>{request.firstName}</p>
+                            <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
+                            <p><span className="font-weight-bold">Email: </span>{request.email}</p>
+                            <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
+                        </div>
+                        <div className="col-6">
+                            <h4>Business Information</h4>
+                            <p><span className="font-weight-bold">Days remaining: </span>{index * 4}</p>
+                            <p><span className="font-weight-bold">Status by department: </span></p>
+
+                            <p><i class="fas fa-times text-danger"></i> Law</p>
+                            <p><i class="fas fa-check text-success"></i> Law</p>
+
+                            <p><i class="fas fa-times text-danger"></i> Marketing</p>
+                            <p><i class="fas fa-check text-success"></i> Marketing</p>
+
+                            <p><i class="fas fa-times text-danger"></i> Customer Relations</p>
+                            <p><i class="fas fa-check text-success"></i> Customer Relations</p>
+
+                            <div className="btn btn-primary disabled send-btn" disabled>Send Data</div>
+                        </div>
                     </div>
                 </div>
             </div>

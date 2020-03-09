@@ -21,7 +21,10 @@ class RequestForm extends Component {
             email: '',
             lastName: '',
             residence: '',
-            time: new Date()
+            time: new Date(),
+            department_law: '',
+            department_marketing: '',
+            department_customer: ''
         }
     }
 
@@ -50,7 +53,10 @@ class RequestForm extends Component {
             email: requestObject.email,
             lastName: requestObject.lastName,
             residence: requestObject.residence,
-            time: requestObject.time
+            time: requestObject.time,
+            department_law: requestObject.department_law,
+            department_marketing: requestObject.department_marketing,
+            department_customer: requestObject.department_customer
         });
     };
 
@@ -64,7 +70,10 @@ class RequestForm extends Component {
             email: this.state.email,
             lastName: this.state.lastName,
             residence: this.state.residence,
-            time: this.state.time
+            time: this.state.time,
+            department_law: this.state.department_law,
+            department_marketing: this.state.department_marketing,
+            department_customer: this.state.department_customer
         };
 
         this.putDataToDB(requestObject);
