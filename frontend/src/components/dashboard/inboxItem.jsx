@@ -5,15 +5,17 @@ import './inboxItem.css';
 
 
 function InboxItem(props) {
-
+    
 
     const requests = props.requests.reverse();
     const tableItems = requests.map((request, index) =>
-        <tr key={index} onClick={() => { toggleHide(index) }}>
+        
+        <tr className={request.department_law && request.department_marketing && request.department_customer ? "table-success" : " "} key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
-            <td>Request {request.lastName.substring(0, 3) + request._id.substring(5, 10)}</td>
+            <td >Request {request.lastName.substring(0, 3) + request._id.substring(5, 10)}</td>
+            
             <td>{index + 1 * 3} days remaining</td>
-            <button type="button" class="btn btn-outline-primary">Details</button>
+            <td><button type="button" className={request.department_law && request.department_marketing && request.department_customer ? "btn btn-primary" : "btn btn-outline-primary"}>Details</button></td>
         </tr>
     );
 
