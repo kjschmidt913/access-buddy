@@ -9,11 +9,6 @@ class Dashboard extends Component {
         super(props)
         this.state = {
             data: [],
-            departments:{
-                department_law: "True",
-                department_marketing: "",
-                department_customer: "True"
-            },
             message: null,
             intervalIsSet: false
 
@@ -65,7 +60,7 @@ class Dashboard extends Component {
                         <p><span className="font-weight-bold">Email: </span>{this.state.data[this.state.data.length-1].email}</p>
                         <p><span className="font-weight-bold">Residence: </span>{this.state.data[this.state.data.length-1].residence}</p> */}
 
-                        <InboxItem requests = {this.state.data} departments = {this.state.departments}/>
+                        <InboxItem requests = {this.state.data}/>
                     </div>
                 </div>
             );
