@@ -1,5 +1,8 @@
 import React from 'react';
 import './inboxItem.css';
+// import getTimeRemaining from './countdown.jsx';
+// import addDays from './countdown.jsx'
+
 
 function InboxItem(props) {
 
@@ -8,7 +11,7 @@ function InboxItem(props) {
         <tr key={index} onClick={() => { toggleHide(index) }}>
             <td>{index + 1}</td>
             <td>Request {request.lastName.substring(0,3)+request._id.substring(5,10)}</td>
-            <td>{(index + 3) * 4} days remaining</td>
+            <td>{index*4} days remaining</td>
             <button type="button" class="btn btn-outline-primary">Details</button>
         </tr>
     );
@@ -27,12 +30,12 @@ function InboxItem(props) {
                     </div>
                     <div className="col-5">
                         <h4>Business Information</h4>
-                        <p><span className="font-weight-bold">Days remaining: </span>9</p>
+                        <p><span className="font-weight-bold">Days remaining: </span>{index*4}</p>
                         <p><span className="font-weight-bold">Status by department: </span></p>
-                        <p><i class="fas fa-check-square text-success"></i> Marketing</p>
-                        <p><i class="fas fa-check-square text-success"></i> Customer Experience</p>
-                        <p><i class="fas fa-times text-danger"></i> Legal</p>
-
+                        <p><label><input type="checkbox" name="Marketing" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Marketing</label></p>
+                        <p><label><input type="checkbox" name="Customer Experience" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Customer Experience</label></p>
+                        <p><label><input type="checkbox" name="Legal" value="" onchange="document.getElementById('sendbutton').disabled = !this.checked;"/> Legal</label></p>
+                        <p><input type="submit" name="sendbutton" class="inputButton" id="sendNewSms" value=" Send Request" /></p>
                     </div>
                 </div>
             </div>
@@ -64,5 +67,6 @@ function InboxItem(props) {
         </div>
     );
 }
+
 
 export default InboxItem;

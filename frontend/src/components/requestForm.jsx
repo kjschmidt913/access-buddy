@@ -20,7 +20,8 @@ class RequestForm extends Component {
             firstName: '',
             email: '',
             lastName: '',
-            residence: ''
+            residence: '',
+            time: new Date()
         }
     }
 
@@ -48,12 +49,13 @@ class RequestForm extends Component {
             firstName: requestObject.firstName,
             email: requestObject.email,
             lastName: requestObject.lastName,
-            residence: requestObject.residence
+            residence: requestObject.residence,
+            time: requestObject.time
         });
     };
 
     //AWS Link: https://sqs.us-east-2.amazonaws.com/497256551556/DSAR_Insightly.fifo
-    
+
 
     onSubmit() {
 
@@ -61,7 +63,8 @@ class RequestForm extends Component {
             firstName: this.state.firstName,
             email: this.state.email,
             lastName: this.state.lastName,
-            residence: this.state.residence
+            residence: this.state.residence,
+            time: this.state.time
         };
 
         this.putDataToDB(requestObject);
@@ -71,7 +74,8 @@ class RequestForm extends Component {
             firstName: '',
             email: '',
             lastName: '',
-            residence: ''
+            residence: '',
+            time: ''
         });
     }
 
