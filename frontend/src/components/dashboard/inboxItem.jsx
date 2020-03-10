@@ -51,7 +51,7 @@ function InboxItem(props) {
 
                             <p>
                                 {request.department_customer == "True" ? <i class="fas fa-check text-success mr-2 "></i> : <i class="mr-2 fas fa-times text-danger"></i>}
-                             Customer
+                             Customer Relations
                             </p>
 
                             {request.department_law && request.department_marketing && request.department_customer ? <button className="btn btn-primary">Send Data</button> : <button className="btn btn-primary disabled send-btn" disabled>Send Data</button>}
