@@ -9,6 +9,7 @@ import About from "./components/about.jsx"
 import Features from "./components/features.jsx"
 import Pricing from "./components/pricing.jsx"
 import DepartmentInput from "./components/departmentInput.jsx";
+import SentUser from "./components/sentToUser.jsx";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/features" component={Features} />
                 <Route path="/pricing" component={Pricing} />
                 <Route path="/department-input" component={DepartmentInput} />
+                <Route path="/sent-user" component={SentUser} />
 
             </Switch>
         </Router>);

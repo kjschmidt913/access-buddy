@@ -85,9 +85,9 @@ class DepartmentInput extends Component {
                                 <label htmlFor="deptName">Department:</label>
                                 <select className="form-control" id="deptName" value={this.state.department} onChange={this.onChangeDepartment}>
                                     <option value="" default>Select your department</option>
+                                    <option>Law</option>
                                     <option>Marketing</option>
-                                    <option>Accounting</option>
-                                    <option>Other</option>
+                                    <option>Customer Relations</option>
                                 </select>
 
                             </div>

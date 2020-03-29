@@ -1,5 +1,6 @@
 import React from 'react';
 import './inboxItem.css';
+import { Link } from 'react-router-dom';
 // import getTimeRemaining from './countdown.jsx';
 // import addDays from './countdown.jsx'
 
@@ -33,6 +34,7 @@ function InboxItem(props) {
                             <p><span className="font-weight-bold">Last Name: </span>{request.lastName}</p>
                             <p><span className="font-weight-bold">Email: </span>{request.email}</p>
                             <p><span className="font-weight-bold">Residence: </span>{request.residence}</p>
+                            <p><i class="fas fa-check text-success mr-2"></i><span className="font-weight">Verified </span></p>
                         </div>
                         <div className="col-6">
                             <h4>Business Information</h4>
@@ -54,7 +56,7 @@ function InboxItem(props) {
                              Customer Relations
                             </p>
 
-                            {request.department_law && request.department_marketing && request.department_customer ? <button className="btn btn-primary">Send Data</button> : <button className="btn btn-primary disabled send-btn" disabled>Send Data</button>}
+                            {request.department_law && request.department_marketing && request.department_customer ? <Link to="/sent-user"><button className="btn btn-primary" id="sendData">Send Data</button></Link> : <button className="btn btn-primary disabled send-btn" disabled>Send Data</button>}
 
                         </div>
                     </div>
