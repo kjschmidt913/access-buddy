@@ -8,6 +8,7 @@ import RequestComplete from "./components/requestComplete.jsx";
 import About from "./components/about.jsx"
 import Features from "./components/features.jsx"
 import Pricing from "./components/pricing.jsx"
+import DepartmentInput from "./components/departmentInput.jsx";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
                 <Route path="/about" component={About} />
                 <Route path="/features" component={Features} />
                 <Route path="/pricing" component={Pricing} />
-
+                <Route path="/department-input" component={DepartmentInput} />
 
             </Switch>
         </Router>);
