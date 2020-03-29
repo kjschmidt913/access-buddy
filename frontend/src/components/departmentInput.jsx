@@ -76,7 +76,7 @@ class DepartmentInput extends Component {
 
                     <form>
                         <div className="col-md-6 col-12 mx-auto mt-2">
-                            <h1>Department Data Input</h1>
+                            <h1>Department Data Upload</h1>
                             <div className="form-group">
                                 <label htmlFor="requestID">Request ID:</label>
                                 <input type="text" id="requestID" className="form-control" value={this.state.requestID} onChange={this.onChangeRequestID} />
