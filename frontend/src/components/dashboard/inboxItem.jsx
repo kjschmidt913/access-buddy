@@ -20,6 +20,7 @@ function InboxItem(props) {
         </tr>
     );
 
+    
     const requestDetails = requests.map((request, index) =>
         <section key={index} id={index} className="d-none" >
             <div className="request-modal">
