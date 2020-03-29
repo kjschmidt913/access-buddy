@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from './nav.jsx';
 import { Link } from 'react-router-dom';
-// import MDBFileupload from 'mdb-react-fileupload';
 
 class DepartmentInput extends Component {
 
@@ -11,15 +10,15 @@ class DepartmentInput extends Component {
 
         // Setting up functions and binding
         this.onChangeRequestID = this.onChangeRequestID.bind(this);
-        // this.onChangeEmail = this.onChangeEmail.bind(this);
-        // this.onChangeLastName = this.onChangeLastName.bind(this);
+        this.onChangeDepartment = this.onChangeDepartment.bind(this);
+        this.onChangeDeptData = this.onChangeDeptData.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         // Setting up state
         this.state = {
             requestID: '',
-            // email: '',
-            // lastName: '',
+            department: '',
+            deptData: ''
         }
     }
 
@@ -28,12 +27,12 @@ class DepartmentInput extends Component {
         this.setState({ requestID: e.target.value })
     }
 
-    onChangeEmail(e) {
-        this.setState({ email: e.target.value })
+    onChangeDepartment(e) {
+        this.setState({ department: e.target.value })
     }
 
-    onChangeLastName(e) {
-        this.setState({ lastName: e.target.value })
+    onChangeDeptData(e) {
+        this.setState({ deptData: e.target.value })
     }
 
     putDataToDB = requestObject => {
@@ -41,9 +40,8 @@ class DepartmentInput extends Component {
 
         axios.post("http://localhost:3001/api/putData", {
             requestID: requestObject.requestID,
-            email: requestObject.email,
-            lastName: requestObject.lastName,
-            residence: requestObject.residence
+            department: requestObject.department,
+            deptData: requestObject.deptData
         });
     };
 
@@ -54,9 +52,8 @@ class DepartmentInput extends Component {
 
         const requestObject = {
             requestID: this.state.requestID,
-            email: this.state.email,
-            lastName: this.state.lastName,
-            residence: this.state.residence
+            department: this.state.department,
+            deptData: this.state.deptData
         };
 
         this.putDataToDB(requestObject);
@@ -64,9 +61,8 @@ class DepartmentInput extends Component {
 
         this.setState({
             requestID: '',
-            email: '',
-            lastName: '',
-            residence: ''
+            department: '',
+            deptData: ''
         });
     }
 
@@ -83,11 +79,11 @@ class DepartmentInput extends Component {
                             <h1>Department Data Input</h1>
                             <div className="form-group">
                                 <label htmlFor="requestID">Request ID:</label>
-                                <input type="text" id="requestID" className="form-control" value={this.state.lastName} onChange={this.onChangeRequestID} />
+                                <input type="text" id="requestID" className="form-control" value={this.state.requestID} onChange={this.onChangeRequestID} />
                             </div>
                             <div className="form-group mt-1">
                                 <label htmlFor="deptName">Department:</label>
-                                <select className="form-control" id="deptName" value={this.state.residence} onChange={this.onChangeResidence}>
+                                <select className="form-control" id="deptName" value={this.state.department} onChange={this.onChangeDepartment}>
                                     <option value="" default>Select your department</option>
                                     <option>Marketing</option>
                                     <option>Accounting</option>
@@ -100,14 +96,13 @@ class DepartmentInput extends Component {
                                 <span className="card">
                                     <div className= "card-body">
                                         <div className="file-upload-wrapper">
-                                            <input type="file" id="dataInput" className="file-upload" />
+                                            <input type="file" id="dataInput" className="file-upload" value={this.state.deptData} onChange={this.onChangeDeptData}/>
                                         </div>
                                     </div>
                                 </span>
                                 <p className="text-center">(drag and drop)</p>
                             </div>
-                            
-                            
+
                             <Link to="/request-complete"><button className="btn btn-primary col-12 mt-2" onClick={this.onSubmit} >Submit</button></Link>
                         </div>
                     </form>
