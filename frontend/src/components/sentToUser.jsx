@@ -12,4 +12,5 @@ function SentUser() {
     );
 }
 
+
 export default SentUser;

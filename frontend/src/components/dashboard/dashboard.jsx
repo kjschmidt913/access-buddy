@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Nav from '../nav.jsx';
 import InboxItem from './inboxItem.jsx';
 
+
 class Dashboard extends Component {
 
     constructor(props) {
