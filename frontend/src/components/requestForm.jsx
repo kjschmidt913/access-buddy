@@ -116,6 +116,7 @@ class RequestForm extends Component {
                                 <select className="form-control" id="residence" value={this.state.residence} onChange={this.onChangeResidence}>
                                     <option value="" default>Select your option</option>
                                     <option>California</option>
+                                    <option>European Union (EU)</option>
                                     <option>Other</option>
                                 </select>
                             </div>

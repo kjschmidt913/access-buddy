@@ -19,6 +19,8 @@
   "homepage": "https://github.com/kjschmidt913/access-buddy#readme",
   "dependencies": {
     "concurrently": "^5.1.0",
+    "mdbootstrap": "^4.14.1",
+    "mdbreact": "^4.25.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-fontawesome": "^1.7.1",
